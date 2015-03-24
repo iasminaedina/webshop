@@ -1,0 +1,108 @@
+
+<h1 class="well" >
+                    <a ng-href="#/products">
+                        <img src="img/book.gif" height="60" width="60" alt="logo"/>
+                    </a>
+                    Book Store 
+                </h1>
+<div>
+    <p class="text-info">
+   Thanks for shopping at the Book Store.<br>
+This is your order summary. Please provide your information and confirm.
+</p>
+<div class="well"><h2>Checkout</h2>
+
+    <h3>Order Summary</h3>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Price per Product</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="cartProduct in cartProducts">
+            <td>{{cartProduct.product.name}}</td>
+            <td>{{cartProduct.product.price}} DKK</td>
+            <td ng-model="quantity">
+            {{cartProduct.quantity}}
+            </td>
+            <td>{{cartProduct.total }} DKK</td>
+        </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+            <td><strong>Total Price</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>{{cartTotal}} DKK</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+
+<a ng-href="#/index"><button class=' btn btn-success' value="Home"> Continue Shopping</button></a>
+<a ng-href="#/cart"><button class=' btn btn-warning' value="Cart"> Go to Cart </button></a> <br><br></div>
+
+<form class="form-horizontal">
+<fieldset>
+ 
+
+
+<div class="well"><legend>Personal Info</legend>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="firstname">First Name</label>  
+  <div class="col-md-4">
+  <input id="firstname" name="firstname" type="text" placeholder="Input your First Name" class="form-control input-md" ng-model="user.firstname" >
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="lastname">Last Name</label>  
+  <div class="col-md-4">
+  <input id="lastname" name="lastname" type="text" placeholder="Input your Last Name" class="form-control input-md" ng-model="user.lastname">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">E-mail</label>  
+  <div class="col-md-4">
+  <input id="email" name="email" type="text" placeholder="Input your e-mail" class="form-control input-md" ng-model="user.email">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="city">City</label>  
+  <div class="col-md-4">
+  <input id="city" name="city" type="text" placeholder="Your city of residence" class="form-control input-md" ng-model="user.city">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="zipcode">Zip Code</label>  
+  <div class="col-md-4">
+  <input id="zipcode" name="zipcode" type="text" placeholder="Input you zip code" class="form-control input-md" ng-model="user.zipcode">
+    
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<button class="btn btn-success" type="submit" ng-click="">Confirm order</button></div>
+
+<style>
+.form-control{
+  width:200px;
+}
+</style>

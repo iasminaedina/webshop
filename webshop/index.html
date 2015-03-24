@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="Main">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Bookstore</title>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	
+</head>
+<body>
+<div class="container">
+
+		<div ng-view>
+		</div>
+		
+</div>
+	
+	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="node_modules/angular-route/angular-route.min.js"></script>
+	<script src="app.module.js"></script>
+	<script src="cart/cart.service.js"></script>
+	<script src="products/products.service.js"></script>
+	<script src="cart/cart.controller.js"></script>
+	<script src="products/products.controller.js"></script>
+	<script src="products/product.controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+
+<h1 class="well" >
+                    <a ng-href="#/products">
+                        <img src="img/book.gif" height="60" width="60" alt="logo"/>
+                    </a>
+                    Book Store 
+                </h1>
+<div>
+    <p class="text-info">
+   Thanks for shopping at the Book Store.<br>
+This is your shopping cart. Here you can edit the items, go back to the store, clear the cart, or check out.
+</p>
+<div>
+    <div ng-controller="cartController" class="well">
+
+    <h3>Cart</h3>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Price per Product</th>
+            <th>Remove from Cart</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr ng-repeat="cartProduct in cartProducts">
+            <td>{{cartProduct.product.name}}</td>
+            <td>{{cartProduct.product.price}} DKK</td>
+            <td ng-model="quantity">
+            {{cartProduct.quantity}}
+            <button class="btn btn-success pull-right" ng-click="increaseQuantity(cartProduct.product)">+</button>
+            <button class="btn btn-danger pull-right" ng-click="decreaseQuantity(cartProduct.product)">-</button>
+            </td>
+            <td>{{cartProduct.total }} DKK</td>
+            <td>
+            <span>  <button class=' btn btn-danger' value="Delete" ng-click="removeItem(cartProduct.product)"> Delete </button>
+            </span>
+            </td>
+        </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+            <td><strong>Total Price</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>{{cartTotal}} DKK</strong></td>
+            <td></td>
+            </tr>
+        </tfoot>
+    </table>
+    
+    <a ng-href="#/index"><button class="btn btn-success" value="Home">Continue Shopping</button></a>
+
+    <a ng-href="#/checkout"><button class="btn btn-warning" value="Checkout">Checkout</button></a>
+
+	</div>
+
