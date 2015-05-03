@@ -1,50 +1,55 @@
+<!--Banner-->
 <h1 class="well" >
-                    <a ng-href="#/products">
-                        <img src="img/book.gif" height="60" width="60" alt="logo"/>
-                    </a>
-                    Book Store 
-                </h1>
+    <a ng-href="#/products">
+        <img src="img/book.gif" height="60" width="60" alt="logo"/></a>
+            Book Store 
+</h1>
+
+<!--Welcome Message-->
 <div>
 	<p class="text-info">
     Welcome to our Book Store.<br />
     Please select the products you want and add them to your shopping cart.<br />
     When you are done, click the shopping cart icon to review your order and check out.
 </p>
+
+<!--Search bar-->
 <div>
 <input class="well well-sm" type="search" placeholder="Search products" ng-model="productName">
 </div>
 
+<!--Cart button-->
 <div class="well">
     <a ng-href="#/cart"><button class=' btn btn-success pull-right' value="Cart"> Go to Cart  <i class="glyphicon glyphicon-shopping-cart pull-right"></i></button></a>
     <div class="cart"ng-show="cart.quantity">
       <img src="img/cart.png" width="50px"><h4>Cart</h4>
       Items: <span class="badge">{{cart.quantity}}</span><br></div>
 
+<!--Categories-->
 	<label ng-repeat="category in categories" class="checkbox-inline">
 		<input type="checkbox" ng-click="categoryChange(category.category)"> {{category.category}}
 	</label> 	
 </div>
 
+<!--Show products-->
 <div class="col-md-3" ng-repeat="product in products | filter:productFilter | filter:productName">
 	<a ng-href="#/product/{{product.id}}">
 
 		<div class="well">
 			<h4>{{product.name}}</h4>
 	</a>
-		<form ng-submit="addToCart(product)">
+
+<!--Add product to cart form-->		
+<form ng-submit="addToCart(product)">
             <img src=" {{ product.image }}"  width="60px" heigh="60px"><br><br>
 			<label>Price: </label>
 			{{ product.price }} DKK. </br>
-
-			<label> Author: {{ product.author}} </label>
-			
-			<br>
-
-			<label>Quantity</label>
+            <label> Author: 
+            {{ product.author}} </label><br>
+            <label>Quantity</label>
 			<input type="number" class="form-control" min="1" max="100" ng-model="quantity" placeholder="1"/><br>
+            <button type="submit" class="btn btn-success">Add to cart</button>
+</form>
 
-			<button type="submit" class="btn btn-success">Add to cart</button>
-		</form>
-
-		</div>
+</div>
 </div>

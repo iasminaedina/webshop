@@ -5,7 +5,7 @@
 			var categoriesSelected = [],
 			products = [];
 
-		
+		//Get products from database
 		var getProducts = function(){
 			return $http.get("data/products.json")
 						.then(function(response){
@@ -13,6 +13,7 @@
 						})
 		};
 
+        //Get product id from database
 		var getProduct = function(id){
 			return $http.get("data/products.json")
 						.then(function(response){
@@ -20,7 +21,7 @@
 						})
 		}
       
-		
+		//Search for product in array by id
 		var findProductInArray = function(data, id){
 			return data.filter(function(element){
 				if(element.id === id){
@@ -28,7 +29,8 @@
 				}
 			});
 		}
-		
+
+		//Get categories from database
 		var getCategories = function(){
 			return $http.get("data/categories.json")
 						.then(function(response){
@@ -36,11 +38,13 @@
 						})
 		};
 
+         //Get category selected
 		var getCategoriesSelected = function(){
       		return categoriesSelected;
       	}
 
-		var categoryChange = function(category){
+      	 //Category change
+        var categoryChange = function(category){
 			var i = categoriesSelected.indexOf(category);
             if (i > -1) {
                 categoriesSelected.splice(i, 1);
@@ -50,7 +54,8 @@
             }
 
         };
-
+        
+        //Filter products by category selected
         var productFilter = function(product){
             if (categoriesSelected.length > 0) {
                 if (categoriesSelected.indexOf(product.category) < 0){
